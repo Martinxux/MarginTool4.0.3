@@ -188,7 +188,7 @@ HGT工具测试后需要耗费很长时间进行数据整理和报告制作且�
 
 ## 2.5 图片
 
-[![img.png](img.png)](https://github.com/xmartin1026/MarginTool4.0.3/blob/main/img.png)https://github.com/xmartin1026/MarginTool4.0.3/blob/main/img.png
+![image](https://github.com/xmartin1026/MarginTool4.0.3/blob/main/img.png)
 
 # 3 参与人员
 
