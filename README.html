@@ -1,0 +1,180 @@
+<blockquote>
+<p>问题或建议，请邮件反馈开发人员。</p>
+</blockquote>
+<blockquote>
+<p><code>xuhui1@cancon.com.cn</code>
+<code>niewen@cancon.com.cn</code></p>
+</blockquote>
+<h1 class="atx" id="1-项目背景">1 项目背景</h1>
+<p>HGT工具测试后需要耗费很长时间进行数据整理和报告制作且由于 <code>HG4</code> 新HGT工具的 log 与 <code>HG3</code> 稍微有点不同，为了高效快速制作测试报告，MarginTool 诞生了。经过不断迭代，主要包含以下功能</p>
+<ul>
+<li>支持 XHCL（XHMI）Margin 的数据分析以及报告生成</li>
+<li>支持 PCIe 4 &amp; 5 的数据分析以及报告生成</li>
+<li>支持 PCIe 4 &amp; 5 Preset 测试的所有 Preset 结果提取</li>
+</ul>
+<h1 class="atx" id="2-操作指南">2 操作指南</h1>
+<h2 class="atx" id="21-安装">2.1 安装</h2>
+<p>直接复制<code>MarginTool.exe</code>文件到桌面双击运行即可 <em>或</em> 执行<code>Setup.exe</code>文件安装</p>
+<h2 class="atx" id="22-运行">2.2 运行</h2>
+<ul>
+<li><p>XHMI 模块</p>
+<p>选择测试后的文件夹，注意该文件夹的格式应该如下所示</p>
+<pre><code class="fenced-code-block">  |-- 父级文件夹
+      |-- 8 个子集文件夹（8个 DIE 的结果）
+          |-- 5 个子集文件夹（每个 DIE 测试 5 遍）
+              |-- 实际测试文件</code></pre>
+</li>
+</ul>
+<p><strong><em>直接选择父级文件夹即可</em></strong>，会自动对下面所有子文件夹进行分析，再点击生成报告，即在父文件夹目录生成可用的报告</p>
+<hr>
+<ul>
+<li><p>PCIe 模块</p>
+<p>选择测试后的文件夹，注意文件夹的格式应该如下所示</p>
+<pre><code class="fenced-code-block">  |-- 父级文件夹
+      |-- 若干个子集文件夹（所有设备的结果）
+          |-- 5 个子集文件夹（每个设备测试 5 遍）
+              |-- 实际测试文件</code></pre>
+</li>
+</ul>
+<p><strong><em>需要选择第二级子文件夹</em></strong>，会自动对下面所有文件进行分析，再点击生成报告，即不同设备需要分开分析，对每个设备生成一次报告</p>
+<hr>
+<ul>
+<li><p>PresetScan 模块</p>
+<p>选择测试后的文件夹，注意文件夹的格式应该如下所示</p>
+<pre><code class="fenced-code-block">|-- 父级文件夹
+    |-- 所有 Preset 文件夹（所有 Preset 的结果）
+        |-- 实际测试文件</code></pre>
+</li>
+</ul>
+<p><strong><em>需要选择父文件夹</em></strong>，会自动对下面所有文件进行分析，再点击生成报告。</p>
+<h2 class="atx" id="23-版本控制">2.3 版本控制</h2>
+<p>2023/07/31</p>
+<h3 class="atx" id="version-403">version: 4.0.3</h3>
+<ul>
+<li>修改界面主题与layout；</li>
+<li>增加控件图标；</li>
+<li>增加Suma logo；</li>
+</ul>
+<hr>
+<p>2023/07/18</p>
+<h3 class="atx" id="version-402">version: 4.0.2</h3>
+<ul>
+<li>修复 Preset 结果判定条件不生效的 BUG；</li>
+<li>增加了 Preset 中 fom 参数结果；</li>
+<li>在 WriteToexcel 判断中增加 continue，防止 re 到不同字符引起的崩溃</li>
+<li>更改打包方式，优化运行速度（用安装包）</li>
+</ul>
+<hr>
+<p>2023/07/17</p>
+<h3 class="atx" id="version-401">version: 4.0.1</h3>
+<ul>
+<li>修复 PCIe 结果判定只有 PCIe4 生效的 BUG；</li>
+<li>增加了 PCIe 报告表头、表格式。</li>
+<li>增加安装包文件 install.exe</li>
+</ul>
+<hr>
+<p>2023/06/28</p>
+<h3 class="atx" id="version-400">version: 4.0.0</h3>
+<ul>
+<li><p>合并 XHMI、PCIe Margin4&amp;5、PCIe Preset 的功能，一个 App 三种功能；</p>
+</li>
+<li><p>PCIe 模块可以快速提取出五遍的最小值；</p>
+</li>
+<li><p>XHMI 模块可以快速提取 8 个 DIE 的五遍数据的最小值；</p>
+</li>
+<li><p>PresetScan 模块可以提取出 HGT 测试的所有的 Preset。</p>
+</li>
+<li><p>将三个 app 合并并且重新设计 UI 界面，更改名称为 MarginTool。</p>
+</li>
+</ul>
+<hr>
+<p>2023/05/23</p>
+<h3 class="atx" id="version-210">version: 2.1.0</h3>
+<ul>
+<li><p>优化代码结构，不必每个 Die 都输入一次，直接输入父文件夹路径即可，原本需要八次操作，现在只需一次</p>
+</li>
+<li><p>变更报告生成方式，减少内存占用，新增生成报告按钮，选择路径后会将路径下所有子文件夹中的 excel 合并</p>
+</li>
+</ul>
+<hr>
+<p>2023/05/10</p>
+<h3 class="atx" id="version-124">version: 1.2.4</h3>
+<ul>
+<li><p>优化代码结构，将之前分析和制作报告的代码合并</p>
+</li>
+<li><p>增加判断结果功能，生成报告中若有 Fail 值则为红色字体</p>
+</li>
+</ul>
+<hr>
+<p>2023/04/26</p>
+<h3 class="atx" id="version-121">version: 1.2.1</h3>
+<ul>
+<li><p>对 excel 合并代码进行修改，生成可用报告，不必再复制重新做报告</p>
+</li>
+<li><p>修改代码提升运行速度</p>
+</li>
+</ul>
+<hr>
+<p>2023/04/07</p>
+<h3 class="atx" id="version-111">version: 1.1.1</h3>
+<ul>
+<li><p>调整数据、表格格式，增加 CPU 和 DIE 信息、Spec 信息、Worse lane 值</p>
+</li>
+<li><p>优化代码，目录下无需有多余 excel</p>
+</li>
+</ul>
+<hr>
+<p>2023/03/25</p>
+<h3 class="atx" id="version-101">version: 1.0.1</h3>
+<ul>
+<li><p>'Die.xlsx'和'result总表.xlsx'和'AllExcel'切记不能删除或移动！本路径下所有文件必须在同一路径下才能使用</p>
+</li>
+<li><p>将文件进行更名，更符合 XHMI 测试</p>
+</li>
+<li><p>修复了 result 总表中 lane 名显示不全，位置不正确的问题，添加了参数说明</p>
+</li>
+<li><p>只需要运行 XHMI_Anly.exe 即可，运行完毕之后关闭程序，会自动运行 Organize_data.exe，最终结果在 result 总表中查看</p>
+</li>
+</ul>
+<hr>
+<p>2023/03/24</p>
+<h3 class="atx" id="version-100">version: 1.0.0</h3>
+<ul>
+<li><p>'Result.xlsx'和'result总表.xlsx'和'AllExcel'切记不能删除或移动！</p>
+</li>
+<li><p>将'result总表.xlsx'、'Result.xlsx'、'XHMI_Data_extraction.exe'、'Organize_data.exe'、'AllExcel'所有文件在同一路径下才能运行</p>
+</li>
+<li><p>先打开 XHMI_Data_extraction.exe 进行数据提取，该程序每次只能提取一个DIE，此时会在AllExcel里生成对应的数据，提取八次生成八个数据</p>
+</li>
+<li><p>数据提取完成后，运行 Organize_data.exe ，进行数据汇总，最终数据生成在 result 总表.xlsx 中</p>
+</li>
+</ul>
+<h2 class="atx" id="24-引用参考">2.4 引用参考</h2>
+<blockquote>
+<p><a href="https://github.com/UN-GCPDS/qt-material">Qt Material</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/y281252548/article/details/109637693">Qss</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/jingsupo/p/13536449.html">窗口角标</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/spyder-ide/qtawesome">QtAwesome</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://pypi.org/project/auto-py-to-exe/">auto-py-to-exe</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/yply/p/12001813.html">HM NIS Edit</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/Nuitka/Nuitka">nuitka</a></p>
+</blockquote>
+<h2 class="atx" id="25-图片">2.5 图片</h2>
+<p><img alt="imgpng" src="file://D:%5CDesktop%5CMarginTool%5Cimg.png?msec=1690769914508"></p>
+<h1 class="atx" id="3-参与人员">3 参与人员</h1>
+<ul>
+<li>徐会</li>
+<li>聂文</li>
+</ul>
